@@ -1,0 +1,73 @@
+# Cloudflare Pages headers — https://developers.cloudflare.com/pages/configuration/headers/
+#
+# IMPORTANT: when more than one rule matches a request, Cloudflare Pages does NOT
+# "last match wins" — it CONCATENATES the values of any header set by multiple
+# rules. So to keep Cache-Control clean we set it on disjoint, non-overlapping
+# paths only, and keep the security headers (which never conflict) on /*.
+
+/*
+  # --- Security headers (apply to every response; no Cache-Control here) ---
+  # CSP reflects exactly what the site loads: same-origin CSS/JS/fonts/images, a
+  # data: favicon, and (only when a token is configured in js/site-config.js) the
+  # Cloudflare Web Analytics beacon. 'unsafe-inline' is needed for style-src
+  # because pages use inline style="" attributes; no inline/eval JavaScript runs.
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' https://static.cloudflareinsights.com; connect-src 'self' https://cloudflareinsights.com; form-action 'self'; manifest-src 'self'; upgrade-insecure-requests
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), camera=(), microphone=(), payment=(), usb=(), browsing-topics=()
+  X-Frame-Options: DENY
+  Strict-Transport-Security: max-age=63072000; includeSubDomains
+
+# --- Stable binary assets: cache hard for a year (safe to treat as immutable) ---
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/pdfs/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# --- CSS/JS are not content-hashed, so use a moderate 1-day cache with
+#     revalidation (updates still propagate the next day) rather than immutable ---
+/css/style.css
+  Cache-Control: public, max-age=86400, stale-while-revalidate=86400
+
+/js/main.js
+  Cache-Control: public, max-age=86400, stale-while-revalidate=86400
+
+/js/analytics.js
+  Cache-Control: public, max-age=86400, stale-while-revalidate=86400
+
+# site-config.js carries the seasonal availability message — keep it short so a
+# "booked / accepting inquiries" change is never stuck behind a stale cache.
+# (listed separately so it does not inherit the 1-day /js rule above)
+/js/site-config.js
+  Cache-Control: public, max-age=300, must-revalidate
+
+# --- HTML pages + clean URLs: short cache so content and seasonal availability
+#     update promptly. Listed explicitly so they never overlap the asset rules. ---
+/
+  Cache-Control: public, max-age=300, must-revalidate
+/index.html
+  Cache-Control: public, max-age=300, must-revalidate
+/services
+  Cache-Control: public, max-age=300, must-revalidate
+/services.html
+  Cache-Control: public, max-age=300, must-revalidate
+/lawn-talk
+  Cache-Control: public, max-age=300, must-revalidate
+/lawn-talk.html
+  Cache-Control: public, max-age=300, must-revalidate
+/products
+  Cache-Control: public, max-age=300, must-revalidate
+/products.html
+  Cache-Control: public, max-age=300, must-revalidate
+/404.html
+  Cache-Control: public, max-age=300, must-revalidate
+
+# --- SEO/config files: short cache ---
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+/robots.txt
+  Cache-Control: public, max-age=3600

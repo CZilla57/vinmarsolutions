@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vinmar-solutions-llc.pages.dev/sitemap.xml

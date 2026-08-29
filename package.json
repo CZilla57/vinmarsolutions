@@ -1,0 +1,28 @@
+{
+  "name": "vinmar-solutions-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static marketing website for Vinmar Solutions LLC (lawn care, Ballston Spa, NY).",
+  "type": "module",
+  "scripts": {
+    "serve": "node scripts/serve.mjs",
+    "check": "npm run check:html && npm run check:js && npm run check:seo && npm run check:links && npm run check:a11y && npm run check:lighthouse",
+    "check:html": "html-validate \"*.html\"",
+    "check:js": "node scripts/check-js.mjs",
+    "check:seo": "node scripts/validate-seo.mjs",
+    "check:links": "start-server-and-test serve http://127.0.0.1:8788 links:run",
+    "links:run": "linkinator http://127.0.0.1:8788/ --recurse --silent --skip \"^https?://(?!127\\.0\\.0\\.1)\"",
+    "check:a11y": "start-server-and-test serve http://127.0.0.1:8788 a11y:run",
+    "a11y:run": "node scripts/check-a11y.mjs",
+    "check:lighthouse": "start-server-and-test serve http://127.0.0.1:8788 lh:run",
+    "lh:run": "lhci autorun --config=lighthouserc.json"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "@lhci/cli": "^0.14.0",
+    "html-validate": "^9.0.0",
+    "linkinator": "^6.1.0",
+    "playwright": "^1.48.0",
+    "start-server-and-test": "^2.0.0"
+  }
+}

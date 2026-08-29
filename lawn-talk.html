@@ -5,13 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lawn Talk | Vinmar Solutions LLC</title>
   <meta name="description" content="Lawn Talk: advice from the pros on watering, mowing, overseeding, moss, moles and more from Vinmar Solutions LLC." />
+  <link rel="canonical" href="https://vinmar-solutions-llc.pages.dev/lawn-talk" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Lawn Talk | Vinmar Solutions LLC" />
+  <meta property="og:description" content="Practical advice from local lawn-care professionals on watering, mowing, overseeding, moss, moles, and more." />
+  <meta property="og:url" content="https://vinmar-solutions-llc.pages.dev/lawn-talk" />
+  <meta property="og:image" content="https://vinmar-solutions-llc.pages.dev/images/og-vinmar.jpg" />
+  <meta property="og:image:alt" content="Vinmar Solutions LLC — Healthy lawns, done the right way." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Lawn Talk | Vinmar Solutions LLC" />
+  <meta name="twitter:description" content="Professional guidance for a healthier lawn in the Capital Region." />
+  <meta name="twitter:image" content="https://vinmar-solutions-llc.pages.dev/images/og-vinmar.jpg" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='13' fill='%232e8b46'/%3E%3Cpath d='M24 38V22' stroke='%23fff' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/poppins-800-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
+<body data-page="lawn-talk">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header">
     <nav class="nav">
       <a class="brand" href="index.html">
@@ -28,8 +39,8 @@
           <span class="tag">Family owned &amp; operated lawn care</span>
         </span>
       </a>
-      <button class="nav-toggle" aria-label="Toggle menu">☰ Menu</button>
-      <ul class="nav-links">
+      <button type="button" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-navigation">☰ Menu</button>
+      <ul class="nav-links" id="primary-navigation">
         <li><a href="index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a class="active" href="lawn-talk.html">Lawn Talk</a></li>
@@ -38,7 +49,7 @@
     </nav>
   </header>
 
-  <section class="page-head">
+  <section class="page-head" id="main-content" tabindex="-1">
     <div class="container">
       <h1>Lawn Talk</h1>
       <p>Advice from the pros — practical tips to help you get the most out of your lawn.</p>
@@ -171,7 +182,7 @@
       </div>
       <div>
         <h4>Explore</h4>
-        <ul>
+        <ul data-footer-nav>
           <li><a href="index.html">Home</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="lawn-talk.html">Lawn Talk</a></li>
@@ -181,15 +192,17 @@
       <div>
         <h4>Contact</h4>
         <ul>
-          <li>Office: <a href="tel:15186915200">518-691-5200</a> (call or text)</li>
-          <li><a href="mailto:vinmarsolutions@nycap.rr.com">vinmarsolutions@nycap.rr.com</a></li>
-          <li>Ballston Spa, NY 12020</li>
+          <li>Office: <a href="tel:15186915200" data-site-phone>518-691-5200</a> (call or text)</li>
+          <li><a href="mailto:vinmarsolutions@nycap.rr.com" data-site-email>vinmarsolutions@nycap.rr.com</a></li>
+          <li data-site-location>Ballston Spa, NY 12020</li>
         </ul>
       </div>
     </div>
-    <div class="legal">© 2026 Vinmar Solutions LLC. All rights reserved.</div>
+    <div class="legal">© <span data-site-year>2026</span> Vinmar Solutions LLC. All rights reserved.</div>
   </footer>
 
+  <script src="js/site-config.js"></script>
+  <script src="js/analytics.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

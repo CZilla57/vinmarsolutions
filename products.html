@@ -5,13 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Products &amp; Labels | Vinmar Solutions LLC</title>
   <meta name="description" content="Product labels for every product used by Vinmar Solutions LLC, grouped by category. View or download the official label PDF for each product." />
+  <link rel="canonical" href="https://vinmar-solutions-llc.pages.dev/products" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Products &amp; Labels | Vinmar Solutions LLC" />
+  <meta property="og:description" content="Review official labels for the lawn-care products used by Vinmar Solutions LLC, organized by product category." />
+  <meta property="og:url" content="https://vinmar-solutions-llc.pages.dev/products" />
+  <meta property="og:image" content="https://vinmar-solutions-llc.pages.dev/images/og-vinmar.jpg" />
+  <meta property="og:image:alt" content="Vinmar Solutions LLC — Healthy lawns, done the right way." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Products &amp; Labels | Vinmar Solutions LLC" />
+  <meta name="twitter:description" content="Official product labels, organized for easy reference." />
+  <meta name="twitter:image" content="https://vinmar-solutions-llc.pages.dev/images/og-vinmar.jpg" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='13' fill='%232e8b46'/%3E%3Cpath d='M24 38V22' stroke='%23fff' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/poppins-800-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
+<body data-page="products">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header">
     <nav class="nav">
       <a class="brand" href="index.html">
@@ -28,8 +39,8 @@
           <span class="tag">Family owned &amp; operated lawn care</span>
         </span>
       </a>
-      <button class="nav-toggle" aria-label="Toggle menu">☰ Menu</button>
-      <ul class="nav-links">
+      <button type="button" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-navigation">☰ Menu</button>
+      <ul class="nav-links" id="primary-navigation">
         <li><a href="index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="lawn-talk.html">Lawn Talk</a></li>
@@ -38,7 +49,7 @@
     </nav>
   </header>
 
-  <section class="page-head">
+  <section class="page-head" id="main-content" tabindex="-1">
     <div class="container">
       <h1>Products Used &amp; Labels</h1>
       <p>In the interest of transparency, here are the official product labels for every product we may use,
@@ -54,7 +65,7 @@
       <section class="section">
 
         <!-- Pre-emergent -->
-        <p class="cat-label reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10M12 20v-8M12 12c0-4 3-6 6-6 0 3-2 6-6 6ZM12 12C8 12 5 9 5 5c4 0 7 3 7 7Z"/></svg>Pre-Emergent Herbicides (Crabgrass Preventers)</p>
+        <h2 class="cat-label reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10M12 20v-8M12 12c0-4 3-6 6-6 0 3-2 6-6 6ZM12 12C8 12 5 9 5 5c4 0 7 3 7 7Z"/></svg>Pre-Emergent Herbicides (Crabgrass Preventers)</h2>
         <div class="pdf-grid cat-pre reveal">
           <a class="pdf-card" href="pdfs/Barricade.pdf" target="_blank" rel="noopener"><span class="pdf-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></span><span class="pdf-name">Barricade</span></a>
           <a class="pdf-card" href="pdfs/Prodiamine_4L.pdf" target="_blank" rel="noopener"><span class="pdf-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></span><span class="pdf-name">Prodiamine 4L</span></a>
@@ -62,7 +73,7 @@
         </div>
 
         <!-- Post-emergent -->
-        <p class="cat-label reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.5 2 8a7 7 0 0 1-11 10Z"/><path d="M2 21c0-3 1.9-5.6 4.7-7"/></svg>Post-Emergent &amp; Broadleaf Weed Control</p>
+        <h2 class="cat-label reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.5 2 8a7 7 0 0 1-11 10Z"/><path d="M2 21c0-3 1.9-5.6 4.7-7"/></svg>Post-Emergent &amp; Broadleaf Weed Control</h2>
         <div class="pdf-grid cat-post reveal">
           <a class="pdf-card" href="pdfs/Acclaim_Extra.pdf" target="_blank" rel="noopener"><span class="pdf-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></span><span class="pdf-name">Acclaim Extra</span></a>
           <a class="pdf-card" href="pdfs/Drive.pdf" target="_blank" rel="noopener"><span class="pdf-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></span><span class="pdf-name">Drive</span></a>
@@ -73,13 +84,13 @@
         </div>
 
         <!-- Non-selective -->
-        <p class="cat-label reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>Non-Selective / Spot Weed Control</p>
+        <h2 class="cat-label reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>Non-Selective / Spot Weed Control</h2>
         <div class="pdf-grid cat-nonsel reveal">
           <a class="pdf-card" href="pdfs/Lesco_Prosecutor.pdf" target="_blank" rel="noopener"><span class="pdf-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></span><span class="pdf-name">Lesco Prosecutor</span></a>
         </div>
 
         <!-- Insecticides -->
-        <p class="cat-label reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20a6 6 0 0 0 6-6v-2a6 6 0 0 0-12 0v2a6 6 0 0 0 6 6ZM12 4V2M8.5 4.5 7 3M15.5 4.5 17 3M6 12H3M21 12h-3M6.5 17 5 18.5M17.5 17 19 18.5"/></svg>Insecticides &amp; Grub Control</p>
+        <h2 class="cat-label reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20a6 6 0 0 0 6-6v-2a6 6 0 0 0-12 0v2a6 6 0 0 0 6 6ZM12 4V2M8.5 4.5 7 3M15.5 4.5 17 3M6 12H3M21 12h-3M6.5 17 5 18.5M17.5 17 19 18.5"/></svg>Insecticides &amp; Grub Control</h2>
         <div class="pdf-grid cat-insect reveal">
           <a class="pdf-card" href="pdfs/Merit.pdf" target="_blank" rel="noopener"><span class="pdf-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></span><span class="pdf-name">Merit</span></a>
           <a class="pdf-card" href="pdfs/Talstar.pdf" target="_blank" rel="noopener"><span class="pdf-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></span><span class="pdf-name">Talstar</span></a>
@@ -88,7 +99,7 @@
         </div>
 
         <!-- Fungicides -->
-        <p class="cat-label reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a8 8 0 0 1 16 0Z"/><path d="M12 14v7M9 21h6"/></svg>Fungicides</p>
+        <h2 class="cat-label reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a8 8 0 0 1 16 0Z"/><path d="M12 14v7M9 21h6"/></svg>Fungicides</h2>
         <div class="pdf-grid cat-fungi reveal">
           <a class="pdf-card" href="pdfs/Banner_Maxx_II.pdf" target="_blank" rel="noopener"><span class="pdf-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></span><span class="pdf-name">Banner Maxx II</span></a>
           <a class="pdf-card" href="pdfs/Manicure_6FL.pdf" target="_blank" rel="noopener"><span class="pdf-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></span><span class="pdf-name">Manicure 6FL</span></a>
@@ -123,7 +134,7 @@
       </div>
       <div>
         <h4>Explore</h4>
-        <ul>
+        <ul data-footer-nav>
           <li><a href="index.html">Home</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="lawn-talk.html">Lawn Talk</a></li>
@@ -133,15 +144,17 @@
       <div>
         <h4>Contact</h4>
         <ul>
-          <li>Office: <a href="tel:15186915200">518-691-5200</a> (call or text)</li>
-          <li><a href="mailto:vinmarsolutions@nycap.rr.com">vinmarsolutions@nycap.rr.com</a></li>
-          <li>Ballston Spa, NY 12020</li>
+          <li>Office: <a href="tel:15186915200" data-site-phone>518-691-5200</a> (call or text)</li>
+          <li><a href="mailto:vinmarsolutions@nycap.rr.com" data-site-email>vinmarsolutions@nycap.rr.com</a></li>
+          <li data-site-location>Ballston Spa, NY 12020</li>
         </ul>
       </div>
     </div>
-    <div class="legal">© 2026 Vinmar Solutions LLC. All rights reserved.</div>
+    <div class="legal">© <span data-site-year>2026</span> Vinmar Solutions LLC. All rights reserved.</div>
   </footer>
 
+  <script src="js/site-config.js"></script>
+  <script src="js/analytics.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

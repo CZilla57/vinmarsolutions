@@ -1,0 +1,73 @@
+name: CI
+
+# Validation runs on every pull request and on pushes to the production branch.
+# Production deployment runs ONLY on pushes to `main`, and only after the checks
+# job has passed. Pull requests never deploy to production.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Cancel superseded runs on the same ref to save CI minutes.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    name: Quality checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium (for the axe accessibility check)
+        run: npx playwright install --with-deps chromium
+
+      - name: HTML validity
+        run: npm run check:html
+
+      - name: JavaScript syntax
+        run: npm run check:js
+
+      - name: Sitemap & robots.txt
+        run: npm run check:seo
+
+      - name: Broken links & missing assets
+        run: npm run check:links
+
+      - name: Accessibility (axe / WCAG 2.1 AA)
+        run: npm run check:a11y
+
+      - name: Lighthouse (performance, a11y, best-practices, SEO)
+        run: npm run check:lighthouse
+
+  deploy:
+    name: Deploy to Cloudflare Pages (production)
+    needs: checks
+    # Production only: pushes to main on this repository (never on forks/PRs).
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'CZilla57/vinmarsolutions'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # Deploying with --branch=main publishes to the production environment
+          # (main is the project's production branch).
+          command: pages deploy . --project-name=vinmar-solutions-llc --branch=main
