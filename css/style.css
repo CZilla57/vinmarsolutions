@@ -78,12 +78,12 @@ img { max-width: 100%; display: block; }
   .nav-toggle { display: block; }
   .nav-links {
     display: none; position: absolute; top: 100%; left: 0; right: 0;
-    flex-direction: column; align-items: stretch; gap: 2px;
-    background: #fff; border-bottom: 1px solid var(--border); padding: 8px 12px;
+    flex-direction: column; align-items: stretch; gap: 6px;
+    background: #fff; border-bottom: 1px solid var(--border); padding: 14px 12px 18px;
     box-shadow: var(--shadow);
   }
   .nav-links.open { display: flex; }
-  .nav-links a { padding: 12px 14px; border-radius: 10px; }
+  .nav-links a { padding: 15px 16px; border-radius: 11px; font-size: 1.02rem; }
 }
 
 /* ---------- Hero ---------- */
