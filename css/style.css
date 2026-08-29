@@ -1,4 +1,36 @@
 /* Vinmar Solutions LLC — site styles */
+
+/* ---------- Self-hosted fonts (Poppins + Inter, latin subset, WOFF2) ---------- */
+/* Inter ships as a single variable file covering the weight axis. */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/inter-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/poppins-600-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/poppins-700-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../fonts/poppins-800-latin.woff2") format("woff2");
+}
+
 :root {
   --green-900: #12401d;
   --green-800: #19542a;
@@ -36,6 +68,14 @@ h1, h2, h3, h4, .brand .name { font-family: var(--display); letter-spacing: -.01
 a { color: var(--green-700); }
 img { max-width: 100%; display: block; }
 .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+
+.skip-link {
+  position: fixed; top: 8px; left: 8px; z-index: 100;
+  transform: translateY(-160%); padding: 10px 14px; border-radius: 8px;
+  background: #fff; color: var(--green-900); font-weight: 700; box-shadow: var(--shadow-lg);
+}
+.skip-link:focus { transform: translateY(0); }
+:where(a, button, summary):focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 
 /* ---------- Reveal on scroll ---------- */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
@@ -96,9 +136,18 @@ img { max-width: 100%; display: block; }
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(rgba(15,52,24,.66), rgba(18,64,29,.82)),
               url("../images/hero.jpg") center/cover no-repeat;
+  background: linear-gradient(rgba(15,52,24,.66), rgba(18,64,29,.82)),
+              image-set(url("../images/hero.avif") type("image/avif"), url("../images/hero.jpg") type("image/jpeg")) center/cover no-repeat;
   transform: scale(1.05); z-index: 0;
 }
 .hero > .container { position: relative; z-index: 1; }
+.availability-status {
+  display: inline-flex; align-items: center; justify-content: center;
+  margin: 0 0 18px; padding: 8px 14px; border-radius: 999px;
+  background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.45);
+  color: #fff; font-size: .88rem; font-weight: 700; letter-spacing: .01em;
+  backdrop-filter: blur(5px);
+}
 .hero h1 { font-size: clamp(2.1rem, 5.2vw, 3.5rem); margin: 0 0 16px; line-height: 1.08; font-weight: 800; text-shadow: 0 2px 20px rgba(0,0,0,.25); }
 .hero p.lede { font-size: clamp(1.05rem, 2.2vw, 1.32rem); max-width: 720px; margin: 0 auto 12px; opacity: .97; }
 .hero .quote { font-style: italic; opacity: .92; margin-top: 20px; }
@@ -119,6 +168,20 @@ img { max-width: 100%; display: block; }
 .btn-ghost { background: rgba(255,255,255,.08); color: #fff; border: 1.5px solid rgba(255,255,255,.6); }
 .btn-ghost:hover { background: rgba(255,255,255,.16); }
 
+@media (max-width: 560px) {
+  .hero { padding: 62px 18px 92px; }
+  .hero h1 { font-size: 2.25rem; }
+  .hero p.lede { font-size: 1rem; line-height: 1.55; }
+  .hero p.lede + p.lede { margin-top: 8px; }
+  .availability-status { font-size: .78rem; line-height: 1.35; margin-bottom: 15px; }
+  .badges { margin-top: 20px; gap: 8px; }
+  .badge { padding: 7px 11px; font-size: .8rem; }
+  .badge:nth-child(n+4) { display: none; }
+  .cta-row { margin-top: 24px; }
+  .btn { width: 100%; justify-content: center; padding: 13px 20px; }
+  .hero .quote { display: none; }
+}
+
 /* Curved divider */
 .divider { display: block; width: 100%; height: 60px; margin: 0; line-height: 0; }
 .divider svg { display: block; width: 100%; height: 100%; }
@@ -132,7 +195,7 @@ main { padding: 60px 0; }
 }
 .section .kicker {
   text-transform: uppercase; letter-spacing: 2px; font-size: .78rem;
-  font-weight: 800; color: var(--green-600); margin: 0 0 8px; font-family: var(--font);
+  font-weight: 800; color: var(--green-700); margin: 0 0 8px; font-family: var(--font);
 }
 .section .sub { color: var(--muted); max-width: 700px; margin: 0 0 28px; }
 
@@ -144,7 +207,9 @@ main { padding: 60px 0; }
 .page-head::before {
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(rgba(15,52,24,.72), rgba(18,64,29,.86)),
-              url("../images/turf.jpg") center/cover no-repeat; z-index: 0;
+              url("../images/turf.jpg") center/cover no-repeat;
+  background: linear-gradient(rgba(15,52,24,.72), rgba(18,64,29,.86)),
+              image-set(url("../images/turf.avif") type("image/avif"), url("../images/turf.jpg") type("image/jpeg")) center/cover no-repeat; z-index: 0;
 }
 .page-head > .container { position: relative; z-index: 1; }
 .page-head h1 { margin: 0 0 10px; font-size: clamp(1.9rem, 4vw, 2.7rem); color: #fff; font-weight: 800; }
@@ -159,7 +224,9 @@ main { padding: 60px 0; }
 .stats-band::before {
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(rgba(18,64,29,.86), rgba(18,64,29,.9)),
-              url("../images/turf.jpg") center/cover no-repeat; z-index: 0;
+              url("../images/turf.jpg") center/cover no-repeat;
+  background: linear-gradient(rgba(18,64,29,.86), rgba(18,64,29,.9)),
+              image-set(url("../images/turf.avif") type("image/avif"), url("../images/turf.jpg") type("image/jpeg")) center/cover no-repeat; z-index: 0;
 }
 .stats-grid {
   position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4, 1fr);
@@ -215,13 +282,10 @@ main { padding: 60px 0; }
 .notice h3 svg { width: 22px; height: 22px; flex: none; }
 .notice p { margin: 6px 0; }
 .notice strong { color: #7c2d12; }
-
-.info-banner {
-  position: relative; z-index: 2;
-  background: var(--green-700); color: #fff; text-align: center;
-  padding: 15px 20px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 10px;
+.notice summary {
+  cursor: pointer; color: #9a3412; font-family: var(--display); font-weight: 700;
 }
-.info-banner svg { width: 20px; height: 20px; }
+.notice summary + p { margin-top: 12px; }
 
 /* ---------- Q&A / Lawn talk ---------- */
 .qa { display: grid; gap: 14px; }

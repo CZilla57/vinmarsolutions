@@ -7,3 +7,8 @@ turf.jpg    — Unsplash photo ID QSIq9ncQkzY  (photo-1544914379-806667cd9489)
 
 Source: https://unsplash.com
 License: https://unsplash.com/license
+
+The matching .avif files are optimized derivatives of the photographs above.
+
+og-vinmar.jpg — AI-generated social preview created with OpenAI ImageGen for
+Vinmar Solutions LLC.
