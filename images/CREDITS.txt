@@ -1,0 +1,9 @@
+Photography — Unsplash (free to use under the Unsplash License, no attribution required;
+credits listed here as good practice):
+
+hero.jpg    — Unsplash photo ID c-5-QE5kBYk  (photo-1558904541-efa843a96f01)
+results.jpg — Unsplash photo ID 1ff_i7jO-4g  (photo-1594498653385-d5172c532c00)
+turf.jpg    — Unsplash photo ID QSIq9ncQkzY  (photo-1544914379-806667cd9489)
+
+Source: https://unsplash.com
+License: https://unsplash.com/license
